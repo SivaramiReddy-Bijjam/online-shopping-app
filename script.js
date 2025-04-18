@@ -108,15 +108,16 @@ function addtocart(id){
 
     //check if the product is already available in the card.
  
-    const isproductAvailable = cart.some((product)=> product.id === id);
+    const productToAdd = products.find((product)=> product.id === id);
 
-    if(isproductAvailable){
-        updateUserFeedback(`${productName} already added to the Cart!`,"error");
+    if (cart.some((product)=> product.id === id)){
+
+        updateUserFeedback(`${productToAdd.name} already added to the Cart!`,"error");
             return ;
-        };
-    const productToAdd = products.find(function(product){
-        return product.id ===id;
-    });
+    }
+    // const productToAdd = products.find(function(product){
+        // return product.id ===id;
+    // });
     // console.log(producToAdd);
     cart.push(productToAdd);
     console.log(cart);
